@@ -50,8 +50,8 @@ body, html {
     /* colors for main page */
     background-color:var(--bgBody);
     color: var(--colorBody);
-    max-width: 600px;
-    min-width: 375px;
+    /* max-width: 600px;
+    min-width: 300px; */
 }
 
 
@@ -182,9 +182,16 @@ a {
 }
 
 /* Media query for screens wider than 600px */
-@media (min-width: 1000px) {
+@media (min-width: 600px) {
     .story-cover {
         width: 80%; /* Limit width to 80% of the screen */
         margin: 0 auto; /* Center the grid container horizontally */
+    }
+
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center; 
+      align-items: center; 
     }
 }
