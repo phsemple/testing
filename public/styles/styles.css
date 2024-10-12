@@ -1,0 +1,190 @@
+
+:root {
+    /* Palette Colors 
+       ****************/
+      --bgButton: #328167;
+      --colorButton: #000;
+      --bgButtonHover: #cf8d37;
+      --bgButtonPressed: #41a785;
+
+      --colorLink: #943b2d;
+      --colorLinkHover: #cf8d37;
+
+      --bgBody: #c2ceb4;
+      --colorBody: #000;
+
+      --bgNav: #943b2d;
+      --colorNav: #ffffff;
+      --bgNavHover: #cf8d37;
+
+      --bgHeader:#cf8d37;
+      --colorHeader: #000;
+
+      --bgFooter: #7a2e22;
+      --colorFooter: #f3eaea;
+      --colorH2Footer: #f3eaea;
+
+      /* Image Sizes
+         ***********/
+      --imgWidth_small: 75px;
+      --imgHeight_small: 75px;
+
+}
+
+/*
+  Fonts
+  *****/
+navbar {
+  font-family: "caveat", cursive;
+  font-size:1.5rem;
+}
+
+body, html {
+    box-sizing: border-box;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    /* Global CSS 
+   ***********/
+    margin: 0;
+    padding: 0;
+
+    /* colors for main page */
+    background-color:var(--bgBody);
+    color: var(--colorBody);
+    max-width: 600px;
+    min-width: 375px;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "caveat", cursive;
+}
+
+p {
+  text-align:left;
+}
+
+/* Header and Footer CSS 
+   **********************/
+header{ 
+    background-color: var(--bgHeader);
+    color: var(--colorHeader);
+    padding: 1rem;
+    text-align: center;
+
+}
+
+header h1 {
+    color: var(--colorHeader);
+    text-align: center;
+    margin-top:1.25rem;
+}   
+
+/* Typography CSS 
+   ***************/
+h1, h2, h3, h4, h5, h6 {
+    color: var(--colorBody);
+    margin: 0.5rem 0;
+    font-family: "caveat", cursive;
+}
+
+
+ footer h1 {
+    color: var(--colorH2Footer);
+    text-align: center;
+    height:auto;
+    width:auto;
+}
+
+footer {
+    background-color: var(--bgFooter);
+    color: var(--colorFooter); 
+    padding: 5rem;
+}
+
+
+
+/* Main Content CSS 
+   ****************/
+
+p {
+    margin: 0.25rem;
+    padding: 1rem;
+    font-size: 1.2rem;
+}
+
+button {
+    display:block;
+    background-color:var(--bgButton);
+    color:var(--colorButton);
+
+    border: var(--bgButton) solid 1px;
+    border-color: var(--bgButton);
+    border-radius: 15px 15px 15px 15px;
+
+    margin: .5rem;
+    padding: .5rem 1.5rem;
+    line-height: 2rem;
+
+    font-size: 2.25rem;
+    font-family: "open sans", sans-serif;
+}
+
+a {
+    color: var(--linkColor );
+    line-height: 1rem;
+}
+
+/* stick the header and the nav bar to the top of the page */
+.sticky {
+  position: sticky;
+  top: 0; /* Keeps the item at the top of the container */
+  background: var(--bgHeader); /* Background to cover content underneath while scrolling */
+  z-index: 1; /* Ensure it stays on top while scrolling */
+}
+
+/* **************
+   Title Page
+   */
+a {
+    text-decoration:none;
+}
+
+.story-cover {
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    width:100%;
+    align-content: center;
+    max-width:600px;
+
+}
+
+.story-cover img {
+    width: 10rem;
+    height:auto;
+    margin: .5rem .5rem     1rem .5rem;
+    margin-right: .5
+}
+
+
+.story-cover p {
+    background-color: #65857a;
+    font-size: .75rem;
+    /* margin-left: 1rem; */
+    padding: .2rem .2rem;
+    grid-column:span 2;
+    width:100%;
+
+}
+.story-cover h1 {
+    align-self: center;
+    line-height:1.2;
+    margin-left:.5rem;
+}
+
+/* Media query for screens wider than 600px */
+@media (min-width: 1000px) {
+    .story-cover {
+        width: 80%; /* Limit width to 80% of the screen */
+        margin: 0 auto; /* Center the grid container horizontally */
+    }
+}

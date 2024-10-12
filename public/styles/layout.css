@@ -1,0 +1,15 @@
+body {
+
+    display:grid;
+    grid-template: "header" "main" "footer";
+    
+}
+
+header{
+    grid-area:header;
+    background-color: var(--bgHeader);
+    color: var(--colorHeader);
+    padding: 1rem;
+    text-align: center;
+}
+

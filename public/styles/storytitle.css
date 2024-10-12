@@ -1,0 +1,57 @@
+
+
+/* container to list all the titles and their covers.
+   Allow contents to shrink/grow. Row 1fr and width 100% */
+.stories {
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+    grid-auto-rows: 1fr;
+    justify-content: center;
+    justify-items: center;
+    grid-gap:10px;
+    width:100%  ;
+    
+}
+
+/* the sotry cover: image, title and level */
+ .story-cover {
+    display:grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1.5rem 1fr;  /* auto lets the image grow/shrink */
+    border:2px solid var(--colorHeader);
+    padding:.25rem;
+    margin-top: .5rem   ;
+}
+
+/* let the H1 under the <a> be part of grid */
+.story-cover a {
+    display:contents;
+}
+
+.story-cover img {
+    width:100%;
+    height:auto;
+}  
+
+.story-cover a {
+    text-decoration: none;
+    color: var(--colorHeader);
+}
+
+.story-cover  h1{
+    font-size: 2rem;
+    line-height:1.5rem;
+    width:auto;
+    /* text-justify: top; */
+    text-align: center;
+    /* margin:.5rem 1.5rem; */
+    /* max-width: 300px; */
+
+}
+
+.story-cover p{
+    margin:0;
+    padding:0;
+    font-size: 1.2rem;
+    text-align: center;
+}
