@@ -180,8 +180,8 @@ class Story {
             const page = this.pages[this.currentPage];
             pagenum.innerText = "Page " + page.pagenum + " of " + (this.pages.length - 1); // we don't count the title page
             image.src = page.image;
-            audio.src = page.audio;
-            storytext.innerText = page.text;
+            audio.src = `public\${page.audio}`;
+            storytext.innerText = `public\${page.text}';
         }
         
         /* we toggle visibility on both the button and the image. We decide based on 
