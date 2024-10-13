@@ -1,131 +1,114 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Storybook Project</title>
-    <link href="public/styles/styles.css" rel="stylesheet">
-    <!-- <link href="public/styles/nav.css" rel="stylesheet"> -->
-    <!-- <link href="pubic/styles/storytitle.css" rel="stylesheet"> -->
+    <title>African Story</title>
+
+    <link href="public/styles/story.css" rel="stylesheet">
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
     </style>
+    <script src="https://kit.fontawesome.com/30ce02404c.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
-    <header>
-        <h1>Uwimana's African Storybook</h1>
-    </header>
 
-    <main>
+    <!-- 
+         This is used to tell the server which story to fetch() 
+         We hid it by setting font-size to 0 
+    -->
+    <div id="storyid" style="font-size:0;">0110</div>
 
-        <div class="story-cover">
-            <a class="story-link" href="/story/0002">
-                <img src=public/images/0002/0002_00.jpg alt="guy in garden." />
-                <h1 class="title"> Tazama wanyama</h1>
+    <main class="story-container">
+
+        <div class="nav">
+            <a href="http://localhost:3000/">
+                <button id="home">
+                    <img src="public/images/controls/home.png" alt="Home">
+                </button>
             </a>
-            <p>Level 1</p>
         </div>
+        <div class="control-container">
+            <!-- <label id="language-label">Language</label> -->
+            <select id="language-dropdown" onchange="getStoryInstance().switchLanguage()">
+                <option value="en">English</option>
+                <option value="sw">Swahili</option>
+            </select>
 
-        <div class="story-cover">
-            <a class="story-link" href="/story/0003">
-                <img src=public/images/0003/0003_00.jpg alt="guy in garden." />
-                <h1 class="title"> Sare za shule</h1>
-            </a>
-            <p> Level 1</p>
-        </div>
-
-        <div class="story-cover">
-            <a class="story-link" href="/story/0002">
-                <img src=public/images/0002/0002_00.jpg alt="guy in garden." />
-                <h1 class="title"> Tazama wanyama</h1>
-            </a>
-            <p>Level 1</p>
+            <label id="label-playbackspeed" for="playbackspeed">Playback Rate (<span
+                    id="playback-value">1.0</span>)</label>
+            <input onchange="adjustslider()" type="range" id="playbackspeed" min=".5" max="1.5" value="1" step=".05">
         </div>
 
-        <div class="story-cover">
-            <a class="story-link" href="/story/0003">
-                <img src=public/images/0003/0003_00.jpg alt="guy in garden." />
-                <h1 class="title"> Sare za shule</h1>
-            </a>
-            <p> Level 1</p>
+
+        <div class="title-image-container">
+            <h1 id="title">Mbuzi, Mbwa na Ng’ombe</h1>
+            <img id="image" alt="" src="">
         </div>
 
-        <div class="story-cover">
-            <a class="story-link" href="/story/0002">
-                <img src=public/images/0002/0002_00.jpg alt="guy in garden." />
-                <h1 class="title"> Tazama wanyama</h1>
-            </a>
-            <p>Level 1</p>
-        </div>
-        
-        <div class="story-cover">
-            <a class="story-link" href="/story/0003">
-                <img src=public/images/0003/0003_00.jpg alt="guy in garden." />
-                <h1 class="title"> Sare za shule</h1>
-            </a>
-            <p> Level 1</p>
-        </div>
-        
-        <div class="story-cover">
-            <a class="story-link" href="/story/0002">
-                <img src=public/images/0002/0002_00.jpg alt="guy in garden." />
-                <h1 class="title"> Tazama wanyama</h1>
-            </a>
-            <p>Level 1</p>
-        </div>
-        
-        <div class="story-cover">
-            <a class="story-link" href="/story/0003">
-                <img src=public/images/0003/0003_00.jpg alt="guy in garden." />
-                <h1 class="title"> Sare za shule</h1>
-            </a>
-            <p> Level 1</p>
+        <div class="level-play-page-container">
+            <p id="level">Level 2</p>
+            <div class="playpause-container">
+                <audio id="audio" autoplay onended="getStoryInstance().pageEnded();" type="audio/mp3"
+                    src="0001_sw_01.mp3">
+                    Your browser does not support the audio element.
+                </audio>
+                <!-- onclick ="getStoryInstance().togglePlayPause() -->
+                <button id="playbutton" class='visible'>
+                    <img class='visible' onclick="getStoryInstance().playpause()"
+                        src="public/images/controls/PlayButton.png" alt="Play" />
+                </button>
+                <button id="pausebutton" class='hidden'>
+                    <img class='hidden' onclick="getStoryInstance().playpause()"
+                        src="public/images/controls/PauseButton.png" alt="Pause" />
+                </button>
+            </div>
+            <p id="pagenum">Page 1 of 8</p>
         </div>
 
-        <div class="story-cover">
-            <a class="story-link" href="/story/0002">
-                <img src=public/images/0002/0002_00.jpg alt="guy in garden." />
-                <h1 class="title"> Tazama wanyama</h1>
-            </a>
-            <p>Level 1</p>
-        </div>
-        
-        <div class="story-cover">
-            <a class="story-link" href="/story/0003">
-                <img src=public/images/0003/0003_00.jpg alt="guy in garden." />
-                <h1 class="title"> Sare za shule Lorem ipsum dolor sit amet .</h1>
-            </a>
-            <p> Level 1</p>
-        </div>
-        
-        <div class="story-cover">
-            <a class="story-link" href="/story/0002">
-                <img src=public/images/0002/0002_00.jpg alt="guy in garden." />
-                <h1 class="title"> Tazama wanyama</h1>
-            </a>
-            <p>Level 1</p>
-        </div>
-        
-        <div class="story-cover">
-            <a class="story-link" href="/story/0003">
-                <img src=public/images/0003/0003_00.jpg alt="guy in garden." />
-                <h1 class="title"> Sare za shule</h1>
-            </a>
-            <p> Level 1</p>
-        </div>
+        <dev class="prev-text-next-container">
+            <button id="previous">
+                <img src="public/images/controls/PreviousArrow.png" alt="PrvPg"
+                    onclick="getStoryInstance().previous()" />
+            </button>
+            <p id="storytext">Mbuzi, Mbwa na Ng’ombe walikuwa marafiki wa karibu walisafiri kwa teksi.</p>
+            <button id="next">
+                <img src="public/images/controls/NextArrow.png" alt="NxtPg" onclick="getStoryInstance().next()" />
+            </button>
+        </dev>
 
+        <footer>
+            <div class="credit-container">
+                <p class="credit-label">Written by:</p>
+                <p class="credit" id="writtenBy">Fabian Wakholi</p>
+                <p class="credit-label">Translated by:
+                <p class="credit" id="translatedBy">Brigclass Simiyu</p>
+                <p class="credit-label">Illustrated by: </p>
+                <p class="credit" id="illustratedBy">Marleen Visser, Ingrclass Schechter</p>
+                <p class="credit-label">Read by: </p>
+                <p class="credit" id="readBy">Lauwo George</p>
+            </div>
+        </footer>
 
     </main>
 
-    <footer>
-        <h1></h1>
-    </footer>
+    <button id="download-btn">Download JSON</button>
 
-    <script src="/script/nav.js"></script>
-    <script src="/script/scripts.js"></script>
+    <script src="public/script/storyPage.js"></script>
+    <!-- <script src="/script/scripts.js"></script> -->
 
 </body>
 
 </html>
+
+<!-- 
+  <button id="playbutton" class='visible' onclick="getStoryInstance().playpause()" >
+                    <img src="/images/controls/start.svg" alt="Play" class="visible"/>
+                </button>
+                <button id="pausebutton" class = 'hidden' onclick="getStoryInstance().playpause()" >
+                    <img src="/images/controls/pause.svg" alt="Pause" class="hidden"/>
+                </button> -->
