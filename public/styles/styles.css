@@ -39,8 +39,12 @@ navbar {
   font-size:1.5rem;
 }
 
-body, html {
+* {    
     box-sizing: border-box;
+}
+
+body, html {
+
     font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
  
     display:flex;
@@ -73,7 +77,6 @@ header{
     padding: 1rem;
     text-align: center;
     width:100%;
-
 }
 
 header h1 {
@@ -238,7 +241,6 @@ a.story-link {
         grid-auto-rows: auto;
  
         justify-content: center;
-    
     }
 
 }
