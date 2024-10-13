@@ -1,0 +1,263 @@
+
+/* Styles for the story page */
+
+html, body {
+  box-sizing: border-box;
+  font-family: var(--bodyFontFamily);
+  font-size: 1.25rem;
+  font-weight: 400 ;
+  line-height: 1.2;
+ 
+  max-width: 1200px;
+  align-content: center;
+  margin:0;
+  padding:0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--headerFontFamily);
+    font-weight: 700;
+    font-size: 1.25rem;
+    text-align: center ;
+}
+
+  .nav {
+    display: flex;
+    align-items: center;   /* Vertically centers the image and text */
+    gap: 8px;              /* Adds some space between the image and text */
+    border: 1px solid blue;          /* Optional: Removes the border */
+    background-color:#3273f6;
+    font-size: 16px; 
+  }
+  
+  #home {
+    background-color:transparent;
+    border:none;
+    font-size:1rem;
+    font-weight: 500;
+    margin-top:.5rem;
+  }
+
+  #home img {
+    width:2rem;
+    height:2rem;
+    justify-self:left;
+    align-self:center;
+    margin-left: 1rem;
+    background-color:transparent;
+  }
+
+  .control-container { /* playback and language */
+    display:grid;
+
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1.5rem 1fr;
+    font-size:1rem;
+
+  }
+
+  #language-dropdown {
+    align-self:start;
+    justify-self:left;
+    grid-row-start: span 2;
+    margin-top:1rem;
+    margin-left:2rem;
+    font-size:1rem;
+    width:60%;
+    height:1.5rem;
+    background-color:white;
+  }
+
+  #label-playbackspeed {
+    align-self:center;
+    justify-self: center;
+    grid-column-start: 2;
+    grid-row-start:1;
+    font-size:.75rem;
+    max-width:70%
+    
+  }
+  #playbackspeed {
+    background-color:goldenrod;
+    align-self:end;
+    justify-self:center;
+    width:70%
+  }
+
+
+  .level-play-page-container {
+    grid-area:lvlplaypg;
+    display:grid;
+    grid-template-columns: 3rem 2rem 3rem;
+    
+  }
+
+  .playpause-container {
+    grid-area: playpause;
+    display:grid;
+    height:2.5rem;
+    grid-template-columns: 1fr;
+    align-items:center;
+    justify-items:center;
+  }
+
+ #playbutton, #pausebutton {
+    background-color:transparent;
+     border:none;
+  }
+
+  .playpause-container img {
+    width:2.5rem;
+    height:2.5rem;
+  }
+  
+  #level {
+    justify-self: left;
+    margin-left:1rem;
+  }
+  
+  #pagenum {
+    justify-self:right;
+    margin-right: 1rem;
+  }
+
+  .title-image-container {
+    display:grid;
+     grid-template-rows: auto auto;
+     align-items:center;
+     justify-items:center;
+  }
+
+  #title {
+    justify-self:center;
+    margin: .5rem;
+    font-size: 1.5rem;
+    padding:0rem;
+}
+
+  #image {
+    max-width: 400px;
+    min-width: 300px;
+}
+
+.level-play-page-container {
+  display:grid;
+  grid-template: "level playpause page";
+  grid-template-columns: 1fr 2rem 1fr;
+
+}
+
+#pagenum {
+  grid-area: page;
+    font-size: 1rem;
+    justify-self:right;
+    margin-right:1rem;
+    font-size:.75rem;
+}
+
+#level  {
+  grid-area:level;
+    font-size:1rem;
+    justify-self:left;
+    margin-left:.5rem;
+    font-size:.75rem;
+  }
+
+.playpause-container {
+      grid-area:playpause;
+      display:grid;
+      justify-items:center;
+      align-items:center;
+}
+
+/* Use these to hide/show the play/pause buttons and associated image. */
+.hidden{
+    display:none;
+}
+
+.visible {
+    display:block;
+}
+
+.prev-text-next-container {
+  display:grid;
+  grid-template-columns: 8% 84% 8%;
+  align-items:start;
+}
+
+#previous {
+  background-color: transparent;
+  border:none;
+
+}
+
+#previous img {
+  background-color: transparent;
+  height: 2.5rem;
+  width:2.5rem;
+}
+
+#next {
+  background-color: transparent;
+  border:none;
+  justify-content:center;
+
+}
+
+#next img {
+    height: 2.5rem;
+    width:2.5rem;
+    margin-right:3rem;
+}
+
+
+#storytext {
+    margin: 1.5rem 1rem;
+    font-size: 1.5rem;
+    max-width: 50ch;
+    align-self:left;
+}
+
+
+
+select {
+    border: 2px solid #007BFF;
+    height:1.75rem;
+    max-width: 15rem;
+    background-color: #f0f0f0;
+    color: #333;
+    border-radius: 10px;
+    padding: 2px;
+    margin-top: .25rem;
+    font-size: 1rem;
+}
+
+
+footer {
+  background-color:#3273f6;
+  color:white;
+
+}
+.credit-container {
+    display: grid;
+    grid-template-columns: minmax(min-content, auto) 1fr;
+    grid-template-rows: repeat(4, auto);
+    padding:1rem;
+}
+
+.credit-label
+{
+    padding-right: 1rem;
+    margin:0;
+    margin: 0;
+    font-size:1rem;
+    font-weight:700;
+} 
+  .credit
+{
+    font-size: 1rem;
+    margin: 0;
+
+} 
+
+

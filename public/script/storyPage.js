@@ -18,7 +18,8 @@ let storyInstance = null; // the Story class instance
     
 async function fetchStory(storyId) {
     // Construct the URL with the story ID as a parameter
-    const url = `/fetch-story/${storyId}`; // Using a URL path parameter
+    // This is for the static website.
+    const url = `public/data/${storyId}.json`; // Using a URL path parameter
 
     // Perform the fetch request
     fetch(url)
@@ -267,4 +268,4 @@ function normalspeed() {
 }
 
 
-
+  
