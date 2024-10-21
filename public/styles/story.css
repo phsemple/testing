@@ -21,6 +21,12 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center ;
 }
 
+svg {
+  width:1rem;
+  height:auto;
+  fill:black;
+}
+
   .nav {
     display: flex;
     align-items: center;   /* Vertically centers the image and text */
