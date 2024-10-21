@@ -8,11 +8,6 @@
 
     <link href="public/styles/story.css" rel="stylesheet">
 
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
-    </style>
-    <script src="https://kit.fontawesome.com/30ce02404c.js" crossorigin="anonymous"></script>
-
 </head>
 
 <body>
@@ -21,6 +16,7 @@
          This is used to tell the server which story to fetch() 
          We hid it by setting font-size to 0 
     -->
+    <div id="storyid" style="font-size:0;">0110</div>
 
 
     <img src="public/icons/add.svg" width="24" height="auto" />
@@ -35,30 +31,26 @@
             transform: scaleX(-1);
     </style>
 
-    <div id="storyid" style="font-size:0;">0110</div>
-
     <main class="story-container">
 
-        <div class="nav">
-            <a href="http://localhost:3000/">
-                <button id="home">
-                    <img src="public/images/controls/Home.png" alt="Home">
-                </button>
-            </a>
+
+        <div id="nav-container">
+            <script>
+                fetch('nav.html')
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('nav-container').innerHTML = data;
+
+                        // include the css file 
+                        const link = document.createElement('link');
+                        link.rel = 'stylesheet';
+                        link.href = 'public/styles/nav.css';  // Path to your CSS file
+                        document.head.appendChild(link);
+                    })
+                    .catch(error => console.error('Error fetching the HTML:', error));
+            </script>
+
         </div>
-        <div class="control-container">
-            <!-- <label id="language-label">Language</label> -->
-            <select id="language-dropdown" onchange="getStoryInstance().switchLanguage()">
-                <option value="en">English</option>
-                <option value="sw">Swahili</option>
-            </select>
-
-            <label id="label-playbackspeed" for="playbackspeed">Playback Rate (<span
-                    id="playback-value">1.0</span>)</label>
-            <input onchange="adjustslider()" type="range" id="playbackspeed" min=".5" max="1.5" value="1" step=".05">
-        </div>
-
-
         <div class="title-image-container">
             <h1 id="title">Mbuzi, Mbwa na Ng’ombe</h1>
             <img id="image" alt="" src="">

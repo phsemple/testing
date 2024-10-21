@@ -1,0 +1,123 @@
+/* Styles for the story page */
+
+html, body {
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+  font-size: 1.25rem;
+  font-weight: 400 ;
+  line-height: 1.2;
+ 
+  max-width: 1200px;
+  margin:0 auto;
+  padding:0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 700;
+    font-size: 1.25rem;
+    text-align: center ;
+}
+
+  nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center; 
+    gap: 8px;              
+    border: 2px solid rgb(14, 14, 15);          
+    background-color:#3273f6;
+    font-size: 1rem; 
+  }
+
+  #home {
+    width:1.75rem;
+    margin:.5rem;
+  }
+
+  #burgermenu {
+    justify-self:right;
+    grid-column:2;
+    margin:.5rem;
+  }
+
+  #controls { /* let the grid see the controls subelements */
+    display:contents;
+    background-color: #f0b504;
+
+  }
+
+  #controls {
+    display: grid;
+    grid-template-columns: 1fr; 
+    grid-column: span 2;
+    background-color: #f0b504;
+    height:2rem;
+    padding: .5rem;
+    border-top: 2px solid black;
+}
+
+  #language-dropdown {
+     grid-row:1 / 2;
+     width:6rem;
+     height:1.25rem;
+     font-size:.75rem;
+     margin-left:1rem;
+     justify-self:start;
+     align-self:center;
+
+  }
+
+  #playback-control{
+    grid-row:2/1;
+    width:8rem;
+    justify-self:end;
+    padding-right:2rem;
+   
+    display: flex; /* label and slider */
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center; 
+    align-items: center; 
+ 
+  }
+
+  #label-playbackspeed {
+    grid-row:2;
+    font-size:small;
+     margin-bottom:.25rem;
+  }
+
+  #playbackspeed {
+
+    -webkit-appearance: none;  /* allows us to change track */
+    width: 100%;
+    height: 8px;
+    border-radius: .5rem;
+    margin-bottom:1rem;
+    margin-left:1rem;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+/* Style the track (the line) */
+input[type="range"]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: .5rem;
+    background: #060606; /* Color of the slider track */
+    border-radius: 5px; /* Rounds the corners of the track */
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Removes the default thumb */
+    width: .75rem; /* Width of the thumb */
+    height: .5rem; /* Height of the thumb */
+    background: #f0b504; /* Color of the thumb */
+    border-radius: 40%; /* Rounds the thumb to make it a circle */
+    cursor: pointer;
+    border: 2px solid #000; /* Optional: adds a border to the thumb */
+}
+
+
+  

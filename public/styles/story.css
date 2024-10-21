@@ -9,8 +9,8 @@ html, body {
   line-height: 1.2;
  
   max-width: 1200px;
-  align-content: center;
-  margin:0;
+
+  margin:0 auto;
   padding:0;
 }
 
@@ -20,75 +20,6 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.25rem;
     text-align: center ;
 }
-
-svg {
-  width:1rem;
-  height:auto;
-  fill:black;
-}
-
-  .nav {
-    display: flex;
-    align-items: center;   /* Vertically centers the image and text */
-    gap: 8px;              /* Adds some space between the image and text */
-    border: 1px solid blue;          /* Optional: Removes the border */
-    background-color:#3273f6;
-    font-size: 16px; 
-  }
-  
-  #home {
-    background-color:transparent;
-    border:none;
-    font-size:1rem;
-    font-weight: 500;
-    margin-top:.5rem;
-  }
-
-  #home img {
-    width:2rem;
-    height:2rem;
-    justify-self:left;
-    align-self:center;
-    margin-left: 1rem;
-    background-color:transparent;
-  }
-
-  .control-container { /* playback and language */
-    display:grid;
-
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1.5rem 1fr;
-    font-size:1rem;
-
-  }
-
-  #language-dropdown {
-    align-self:start;
-    justify-self:left;
-    grid-row-start: span 2;
-    margin-top:1rem;
-    margin-left:2rem;
-    font-size:1rem;
-    width:60%;
-    height:1.5rem;
-    background-color:white;
-  }
-
-  #label-playbackspeed {
-    align-self:center;
-    justify-self: center;
-    grid-column-start: 2;
-    grid-row-start:1;
-    font-size:.75rem;
-    max-width:70%
-    
-  }
-  #playbackspeed {
-    background-color:goldenrod;
-    align-self:end;
-    justify-self:center;
-    width:70%
-  }
 
 
   .level-play-page-container {
