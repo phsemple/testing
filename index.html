@@ -21,6 +21,20 @@
          This is used to tell the server which story to fetch() 
          We hid it by setting font-size to 0 
     -->
+
+
+    <img src="public/icons/add.svg" width="24" height="auto" />
+    <img src="public/icons/home.svg" width="24" height="auto" />
+    <img src="public/icons/menu.svg" width="24" height="auto" />
+    <img src="public/icons/playarrow.svg" width="36" height="36" />
+    <img src="public/icons/remove.svg" width="36" height="36" />
+    <img src="public/icons/undo.svg" width="36" height="36" />
+    <img class="reverse" src="public/icons/undo.svg" width="36" height="36" />
+    <style>
+        .reverse {
+            transform: scaleX(-1);
+    </style>
+
     <div id="storyid" style="font-size:0;">0110</div>
 
     <main class="story-container">
@@ -53,8 +67,7 @@
         <div class="level-play-page-container">
             <p id="level">Level 2</p>
             <div class="playpause-container">
-                <audio id="audio" autoplay onended="getStoryInstance().pageEnded();" type="audio/mp3"
-                    src="0001_sw_01.mp3">
+                <audio id="audio" autoplay onended="getStoryInstance().pageEnded();" type="audio/mp3" src="">
                     Your browser does not support the audio element.
                 </audio>
                 <!-- onclick ="getStoryInstance().togglePlayPause() -->
@@ -99,16 +112,8 @@
     <button id="download-btn">Download JSON</button>
 
     <script src="public/script/storyPage.js"></script>
-    <!-- <script src="/script/scripts.js"></script> -->
+    <script src="public/script/download.js"></script>
 
 </body>
 
 </html>
-
-<!-- 
-  <button id="playbutton" class='visible' onclick="getStoryInstance().playpause()" >
-                    <img src="/images/controls/start.svg" alt="Play" class="visible"/>
-                </button>
-                <button id="pausebutton" class = 'hidden' onclick="getStoryInstance().playpause()" >
-                    <img src="/images/controls/pause.svg" alt="Pause" class="hidden"/>
-                </button> -->
