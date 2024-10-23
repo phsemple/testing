@@ -18,22 +18,12 @@
     -->
     <div id="storyid" style="font-size:0;">0110</div>
 
-
-    <img src="public/icons/add.svg" width="24" height="auto" />
-    <img src="public/icons/home.svg" width="24" height="auto" />
-    <img src="public/icons/menu.svg" width="24" height="auto" />
-    <img src="public/icons/playarrow.svg" width="36" height="36" />
-    <img src="public/icons/remove.svg" width="36" height="36" />
-    <img src="public/icons/undo.svg" width="36" height="36" />
-    <img class="reverse" src="public/icons/undo.svg" width="36" height="36" />
-    <style>
-        .reverse {
-            transform: scaleX(-1);
-    </style>
+    <!-- <img src="public/icons/add.svg" width="36" height="auto" />
+    <img src="public/icons/remove.svg" width="36" height="36" /> -->
 
     <main class="story-container">
 
-
+        <!-- Fetch the nav.html and nav.css -->
         <div id="nav-container">
             <script>
                 fetch('nav.html')
@@ -51,13 +41,16 @@
             </script>
 
         </div>
-        <div class="title-image-container">
-            <h1 id="title">Mbuzi, Mbwa na Ng’ombe</h1>
-            <img id="image" alt="" src="">
-        </div>
+
+        <h1 id="title"></h1>
+        <img id="image" alt="" src="">
 
         <div class="level-play-page-container">
             <p id="level">Level 2</p>
+            <button id="rewind" class='visible'>
+                <img class='visible' onclick="getStoryInstance().playpause()" 
+                     src="public/icons/undo.svg" width="36" height="36" alt="Rewind" />
+            </button>
             <div class="playpause-container">
                 <audio id="audio" autoplay onended="getStoryInstance().pageEnded();" type="audio/mp3" src="">
                     Your browser does not support the audio element.
@@ -65,14 +58,18 @@
                 <!-- onclick ="getStoryInstance().togglePlayPause() -->
                 <button id="playbutton" class='visible'>
                     <img class='visible' onclick="getStoryInstance().playpause()"
-                        src="public/images/controls/PlayButton.png" alt="Play" />
+                        src="public/icons/playarrow.svg" width="36" height="36" alt="Play"/>
                 </button>
                 <button id="pausebutton" class='hidden'>
                     <img class='hidden' onclick="getStoryInstance().playpause()"
                         src="public/images/controls/PauseButton.png" alt="Pause" />
                 </button>
             </div>
-            <p id="pagenum">Page 1 of 8</p>
+            <button id="forward" class='visible'>
+                <img class='visible' onclick="getStoryInstance().playpause()" 
+                    src="public/icons/undo.svg" width="36" height="36" style="transform:scale(-1,1)"  alt="Forward" />   
+            </button>
+             <p id="pagenum">Page 1 of 8</p>
         </div>
 
         <dev class="prev-text-next-container">

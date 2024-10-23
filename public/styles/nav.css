@@ -42,20 +42,18 @@ h1, h2, h3, h4, h5, h6 {
     margin:.5rem;
   }
 
-  #controls { /* let the grid see the controls subelements */
-    display:contents;
+  #controls { 
+    display:contents; /* let the grid see the controls subelements */
     background-color: #f0b504;
 
-  }
-
-  #controls {
     display: grid;
-    grid-template-columns: 1fr; 
+    grid-template-columns: 1fr 1fr; 
     grid-column: span 2;
     background-color: #f0b504;
     height:2rem;
     padding: .5rem;
     border-top: 2px solid black;
+
 }
 
   #language-dropdown {
@@ -63,18 +61,18 @@ h1, h2, h3, h4, h5, h6 {
      width:6rem;
      height:1.25rem;
      font-size:.75rem;
-     margin-left:1rem;
-     justify-self:start;
-     align-self:center;
-
+     margin-right:5rem;
+     margin-top: .5rem;
+     justify-self:right;
   }
 
   #playback-control{
     grid-row:2/1;
     width:8rem;
-    justify-self:end;
-    padding-right:2rem;
-   
+    justify-self:start;
+    padding-left:2rem;
+    
+    /* make the lable and control into flex items */
     display: flex; /* label and slider */
     flex-direction: column; /* Stack items vertically */
     justify-content: center; 
@@ -89,7 +87,6 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   #playbackspeed {
-
     -webkit-appearance: none;  /* allows us to change track */
     width: 100%;
     height: 8px;

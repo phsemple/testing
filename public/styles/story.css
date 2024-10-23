@@ -49,63 +49,80 @@ h1, h2, h3, h4, h5, h6 {
   }
   
   #level {
-    justify-self: left;
+    justify-self: right;
     margin-left:1rem;
   }
   
   #pagenum {
-    justify-self:right;
+    justify-self:left;
     margin-right: 1rem;
-  }
-
-  .title-image-container {
-    display:grid;
-     grid-template-rows: auto auto;
-     align-items:center;
-     justify-items:center;
   }
 
   #title {
     justify-self:center;
     margin: .5rem;
-    font-size: 1.5rem;
+    font-size: 1rem;
     padding:0rem;
 }
 
   #image {
-    max-width: 400px;
-    min-width: 300px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid black;
 }
 
 .level-play-page-container {
   display:grid;
-  grid-template: "level playpause page";
-  grid-template-columns: 1fr 2rem 1fr;
+  grid-template: "level rewind playpause forward page";
+  grid-template-columns: 1fr 1fr 3rem 1fr 1fr;
+  background-color:#007BFF;
+}
 
+#image, .level-play-page-container , .prev-text-next-container {
+  width: clamp(400px, 50%, 600px);
+  margin:0 auto;
+}
+
+.prev-text-next-container {
+    width: clamp(500px, 60%, 700px);
+ }
+
+#rewind, .playpause-container, #forward {
+  border: none;
+  justify-self:center;
+  background-color:transparent;
 }
 
 #pagenum {
   grid-area: page;
-    font-size: 1rem;
-    justify-self:right;
-    margin-right:1rem;
-    font-size:.75rem;
+  font-size: 1rem;
+  justify-self:center;
+  margin-right:1rem;
+  font-size:.75rem;
 }
 
 #level  {
   grid-area:level;
-    font-size:1rem;
-    justify-self:left;
-    margin-left:.5rem;
-    font-size:.75rem;
-  }
+  font-size:1rem;
+  justify-self:center;
+  margin-left:.5rem;
+  font-size:.75rem;
+}
 
 .playpause-container {
       grid-area:playpause;
       display:grid;
       justify-items:center;
       align-items:center;
+
 }
+
+#pausebutton {
+  color: red;
+}
+
+
 
 /* Use these to hide/show the play/pause buttons and associated image. */
 .hidden{
