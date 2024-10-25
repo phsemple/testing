@@ -7,49 +7,34 @@
     <title>African Story</title>
 
     <link href="public/styles/story.css" rel="stylesheet">
-
 </head>
 
 <body>
+    <div id="storyid" style="font-size:0;">0110</div>
+
+    <nav>
+        <img id="home" src="public/icons/home.svg" />
+        <h1 id="title"></h1>
+        <img id="burgermenu" class="" onclick="expand()" src="public/icons/menu.svg" />
+    </nav>
 
     <!-- 
          This is used to tell the server which story to fetch() 
          We hid it by setting font-size to 0 
     -->
-    <div id="storyid" style="font-size:0;">0110</div>
 
     <!-- <img src="public/icons/add.svg" width="36" height="auto" />
     <img src="public/icons/remove.svg" width="36" height="36" /> -->
 
     <main class="story-container">
 
-        <!-- Fetch the nav.html and nav.css -->
-        <div id="nav-container">
-            <script>
-                fetch('nav.html')
-                    .then(response => response.text())
-                    .then(data => {
-                        document.getElementById('nav-container').innerHTML = data;
-
-                        // include the css file 
-                        const link = document.createElement('link');
-                        link.rel = 'stylesheet';
-                        link.href = 'public/styles/nav.css';  // Path to your CSS file
-                        document.head.appendChild(link);
-                    })
-                    .catch(error => console.error('Error fetching the HTML:', error));
-            </script>
-
-        </div>
-
-        <h1 id="title"></h1>
         <img id="image" alt="" src="">
 
         <div class="level-play-page-container">
             <p id="level">Level 2</p>
             <button id="rewind" class='visible'>
-                <img class='visible' onclick="getStoryInstance().playpause()" 
-                     src="public/icons/undo.svg" width="36" height="36" alt="Rewind" />
+                <img class='visible' onclick="getStoryInstance().skipBack()" src="public/icons/undo.svg" width="36"
+                    height="36" alt="Rewind" />
             </button>
             <div class="playpause-container">
                 <audio id="audio" autoplay onended="getStoryInstance().pageEnded();" type="audio/mp3" src="">
@@ -57,8 +42,8 @@
                 </audio>
                 <!-- onclick ="getStoryInstance().togglePlayPause() -->
                 <button id="playbutton" class='visible'>
-                    <img class='visible' onclick="getStoryInstance().playpause()"
-                        src="public/icons/playarrow.svg" width="36" height="36" alt="Play"/>
+                    <img class='visible' onclick="getStoryInstance().playpause()" src="public/icons/playarrow.svg"
+                        width="36" height="36" alt="Play" />
                 </button>
                 <button id="pausebutton" class='hidden'>
                     <img class='hidden' onclick="getStoryInstance().playpause()"
@@ -66,34 +51,51 @@
                 </button>
             </div>
             <button id="forward" class='visible'>
-                <img class='visible' onclick="getStoryInstance().playpause()" 
-                    src="public/icons/undo.svg" width="36" height="36" style="transform:scale(-1,1)"  alt="Forward" />   
+                <img class='visible' onclick="getStoryInstance().skipForward()" src="public/icons/undo.svg" width="36"
+                    height="36" style="transform:scale(-1,1)" alt="Forward" />
             </button>
-             <p id="pagenum">Page 1 of 8</p>
+            <p id="pagenum">1 / 8</p>
         </div>
+
+        <section id="controls">
+
+            <select id="language-dropdown" onchange="getStoryInstance().switchLanguage()">
+                <option value="en">English</option>
+                <option value="sw">Swahili</option>
+            </select>
+
+            <div id="playback-control">
+                <label id="label-playbackspeed" for="playbackspeed">Playback Rate (<span
+                        id="playback-value">1.0</span>)</label>
+                <input oninput="adjustslider()" type="range" id="playbackspeed" min="0.75" max="1.25" value="1.00"
+                    step=".05">
+            </div>
+        </section>
 
         <dev class="prev-text-next-container">
             <button id="previous">
-                <img src="public/images/controls/PreviousArrow.png" alt="PrvPg"
-                    onclick="getStoryInstance().previous()" />
+                <img src="public/icons/arrowback.svg" alt="PrevPg" onclick="getStoryInstance().previous()" />
             </button>
             <p id="storytext">Mbuzi, Mbwa na Ng’ombe walikuwa marafiki wa karibu walisafiri kwa teksi.</p>
-            <button id="next">
-                <img src="public/images/controls/NextArrow.png" alt="NxtPg" onclick="getStoryInstance().next()" />
+            <button id="next"> 
+                <!-- We flip the back arrow to point forward -->
+                <img src="public/icons/arrowback.svg" alt="NextPg" style="transform:scale(-1,1)"
+                    onclick="getStoryInstance().next()" />
             </button>
         </dev>
 
         <footer>
-            <div class="credit-container">
-                <p class="credit-label">Written by:</p>
-                <p class="credit" id="writtenBy">Fabian Wakholi</p>
-                <p class="credit-label">Translated by:
-                <p class="credit" id="translatedBy">Brigclass Simiyu</p>
-                <p class="credit-label">Illustrated by: </p>
-                <p class="credit" id="illustratedBy">Marleen Visser, Ingrclass Schechter</p>
-                <p class="credit-label">Read by: </p>
-                <p class="credit" id="readBy">Lauwo George</p>
-            </div>
+            <div class="label writtenby"> Written by:</div>
+            <div id="writtenby" class="credit">Fabian Wakholi</div>
+
+            <div class="label readby">Read by:</div>
+            <div id="readby" class="credit">Lauwo George </div>
+
+            <div class="label illustratedby">Illustrated by:</div>
+            <div id="illustratedby" class="credit">Marleen Visser, Ingrclass Schechter</div>
+
+            <div class="label translatedby">Translated by:</div>
+            <div id="translatedby" class="credit">Brigclass Simiyu</div>
         </footer>
 
     </main>

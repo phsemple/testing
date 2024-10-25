@@ -143,16 +143,7 @@ class Story {
         drawInitialPage() {
 
             const level = document.querySelector('#level');
-            const illustrator = document.querySelector('#illustratedBy');
-            const author = document.querySelector('#writtenBy');
-            const translator = document.querySelector('#translatedBy');
-            const reader = document.querySelector('#readBy');
-            
             level.innerText = "Level " + this.storyArray.stories[this.languageIndex].level;
-            illustrator.innerText =  this.storyArray.stories[this.languageIndex].illustrator;
-            author.innerText =   this.storyArray.stories[this.languageIndex].writtenby;
-            translator.innerText =  this.storyArray.stories[this.languageIndex].translator;
-            reader.innerText =  this.storyArray.stories[this.languageIndex].readby;
 
             // Mark the selection in the dropdown and display the selected value in the paragraph
             const langCode = this.storyArray.stories[this.languageIndex].language;
@@ -166,6 +157,22 @@ class Story {
         // fields oustide of the page that change when the language changes
         drawLangPage() {
             const title = document.querySelector('#title');
+
+            const illustrator = document.querySelector('#illustratedby');
+            const author = document.querySelector('#writtenby');
+            const translator = document.querySelector('#translatedby');
+            const reader = document.querySelector('#readby');
+            
+            // Translator may be empty, so we clear the label 
+            const label = document.querySelector(".label.translatedby");
+            this.storyArray.stories[this.languageIndex].translator === null ? 
+                label.innerText = ""  :
+                label.innerText = "Translated by:";
+         
+            illustrator.innerText =  this.storyArray.stories[this.languageIndex].illustrator;
+            author.innerText =   this.storyArray.stories[this.languageIndex].writtenby;
+            translator.innerText =  this.storyArray.stories[this.languageIndex].translator;
+            reader.innerText =  this.storyArray.stories[this.languageIndex].readby;
             title.innerText = this.storyArray.stories[this.languageIndex].title;
         }
         
@@ -178,7 +185,7 @@ class Story {
             const pagenum = document.querySelector('#pagenum');
                 
             const page = this.pages[this.currentPage];
-            pagenum.innerText = "Page " + page.pagenum + " of " + (this.pages.length - 1); // we don't count the title page
+            pagenum.innerText =  page.pagenum + "/" + (this.pages.length - 1); // we don't count the title page
             image.src = `public/${page.image}`;
             audio.src = `public/${page.audio}`;
             storytext.innerText = page.text;
@@ -234,6 +241,16 @@ class Story {
             this.playing = false;
             this.togglePlayPause();
         }
+    
+       skipBack() {
+            const audio = document.querySelector('audio');
+            audio.currentTime -= 2;
+       }
+    
+        skipForward() {
+            const audio = document.querySelector('audio');
+            audio.currentTime += 2;
+            }
 
 } /* END Story Class */
 
@@ -251,9 +268,10 @@ class Story {
 function adjustslider() {
     const slider = document.getElementById('playbackspeed');
     const audio = document.querySelector('audio');
+    const value = slider.value;
     audio.playbackRate = slider.value;
-    const value = document.querySelector('#playback-value');
-    value.textContent = slider.value;
+    const textValue = document.querySelector('#playback-value');
+    textValue.innerText = Number(value).toFixed(2);
 }
 
 function normalspeed() {
@@ -261,7 +279,7 @@ function normalspeed() {
     slider = document.getElementById('audio_slider');
     var audios = document.getElementsByTagName('audio');
     for (var i = 0, len = audios.length; i < len; i++) {
-        audios[i].playbackRate = 1
+        audios[i].playbackRate = 1.00
     }
     slider.value = 1;
     tooltip.setAttribute('data-tooltip', 'Reading speed: 1×')
